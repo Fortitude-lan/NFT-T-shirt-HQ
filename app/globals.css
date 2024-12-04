@@ -19,7 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.leva-c-hBtFDW {
+  /* height: auto !important; */
+}
 /* **************进度条样式 start******************* */
 .loading-screen {
   position: fixed;

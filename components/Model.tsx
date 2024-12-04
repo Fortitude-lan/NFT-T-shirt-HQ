@@ -9,8 +9,6 @@ import {
   Center,
 } from "@react-three/drei";
 import { easing } from "maath";
-import { useSnapshot } from "valtio";
-import { state } from "@/utils/store";
 import Shirt from "@/components/Shirt";
 
 const Model = () => {
@@ -31,18 +29,22 @@ export default Model;
 
 function CameraRig({ children }) {
   const group = useRef();
-  const snap = useSnapshot(state);
-  console.log(snap);
   useFrame((state, delta) => {
     easing.damp3(state.camera.position, [0, 0, 2], 0.25, delta);
+    // console.log(group.current.rotation);
     easing.dampE(
       group.current.rotation,
       [state.pointer.y / 10, -state.pointer.x / 5, 0],
       0.25,
       delta
     );
+    // console.log(state.pointer.y / 10, -state.pointer.x / 5, 0);
   });
-  return <group ref={group}>{children}</group>;
+  return (
+    <group ref={group}>
+      {children}
+    </group>
+  );
 }
 
 function Backdrop() {

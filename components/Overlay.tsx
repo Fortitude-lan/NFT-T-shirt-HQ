@@ -128,13 +128,14 @@ function Customizer() {
       {/* texture */}
       <div className="texture">
         <div className="texture--container">
-          {snap.decals.map((decal) => (
+          {snap.fabrics.map((fabric, idx) => (
             <div
-              key={decal}
-              className={`decal`}
-              onClick={() => (state.decal = decal + "_thumb")}
+              key={fabric}
+              className={`circle`}
+              style={{ overflow: "hidden" }}
+              onClick={() => (state.curfabric = idx)}
             >
-              <img src={"/textures/" + decal + "_thumb.png"} alt="brand" />
+              <img src={`/textures/fabricCategory/${fabric}_bg.png`} alt="" />
             </div>
           ))}
         </div>
