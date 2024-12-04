@@ -42,45 +42,9 @@ const Overlay = () => {
         </motion.div>
       </motion.header>
       <AnimatePresence>
-        {snap.intro ? (
-          <motion.section key="main" {...config}>
-            <div className="section--container">
-              <div className="support--content">
-                <motion.div
-                  key="p"
-                  initial={{ y: 100, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    type: "spring",
-                    damping: 7,
-                    stiffness: 30,
-                    restDelta: 0.001,
-                    duration: 0.6,
-                    delay: 0.2,
-                    delayChildren: 0.2,
-                  }}
-                >
-                  <p>
-                    Create your unique and exclusive shirt with our brand-new 3D
-                    customization tool.{" "}
-                    <strong>Unleash your imagination</strong> and define your
-                    own style.
-                  </p>
-                  <button
-                    style={{ background: snap.color }}
-                    onClick={() => (state.intro = false)}
-                  >
-                    CUSTOMIZE IT <AiOutlineHighlight size="1.3em" />
-                  </button>
-                </motion.div>
-              </div>
-            </div>
-          </motion.section>
-        ) : (
-          <motion.section key="custom" {...config}>
-            <Customizer />
-          </motion.section>
-        )}
+        <motion.section key="custom" {...config}>
+          <Customizer />
+        </motion.section>
       </AnimatePresence>
     </div>
   );
@@ -92,7 +56,7 @@ function Customizer() {
   return (
     <div className="customizer">
       {/* category */}
-      <div className="category-options">
+      {/* <div className="category-options">
         {snap.colors.map((color) => (
           <div
             key={color}
@@ -101,7 +65,7 @@ function Customizer() {
             onClick={() => (state.tcolor = color)}
           ></div>
         ))}
-      </div>
+      </div> */}
       {/* decals */}
       <div className="decals">
         <div className="decals--container">

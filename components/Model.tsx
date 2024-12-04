@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame} from "@react-three/fiber";
 import {
   AccumulativeShadows,
   RandomizedLight,
   Environment,
   Center,
+  OrbitControls
 } from "@react-three/drei";
 import { easing } from "maath";
 import Shirt from "@/components/Shirt";
@@ -15,6 +16,7 @@ const Model = () => {
   return (
     <>
       <ambientLight intensity={0.5 * Math.PI} />
+      {/* <OrbitControls /> */}
       <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/potsdamer_platz_1k.hdr" />
       <CameraRig>
         <Backdrop />
@@ -38,13 +40,8 @@ function CameraRig({ children }) {
       0.25,
       delta
     );
-    // console.log(state.pointer.y / 10, -state.pointer.x / 5, 0);
   });
-  return (
-    <group ref={group}>
-      {children}
-    </group>
-  );
+  return <group ref={group}>{children}</group>;
 }
 
 function Backdrop() {
