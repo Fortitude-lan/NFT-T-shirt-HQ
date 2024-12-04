@@ -258,7 +258,21 @@ button:hover {
   position: absolute;
   right: 40px;
 }
-
+.see {
+  position: absolute;
+  font-weight: 900;
+  color: #000;
+  background: #ffe100;
+  height: 50px;
+  right: 40px;
+  top: 9%;
+}
+.see:hover {
+  background: transparent;
+  box-shadow: inset 250px 0 0 0 transparent;
+  color: #ffe100;
+  border: 3px solid #ffe100;
+}
 .zoom {
   position: absolute;
   right: 20px;
@@ -301,13 +315,20 @@ button:hover {
   top: 10%;
 }
 .circle {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  border: 2px solid #7765c4;
+  border: 2px solid #fff;
+  /* border: 2px solid #7765c4; */
   transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
 }
-
+.wh30 {
+  width: 30px !important;
+  height: 30px !important;
+}
+.bp {
+  border: 3px solid #7765c4;
+}
 .circle:hover {
   transform: scale(1.2);
   cursor: pointer;

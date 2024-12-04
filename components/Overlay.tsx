@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { useSnapshot } from "valtio";
 import { state } from "@/utils/store";
+import { useState } from "react";
 
 const Overlay = () => {
   const snap = useSnapshot(state);
@@ -87,6 +88,7 @@ const Overlay = () => {
 
 function Customizer() {
   const snap = useSnapshot(state);
+  const [tc, settc] = useState("#726DE8");
   return (
     <div className="customizer">
       {/* category */}
@@ -94,7 +96,7 @@ function Customizer() {
         {snap.colors.map((color) => (
           <div
             key={color}
-            className={`circle`}
+            className={`circle  wh30`}
             style={{ background: color }}
             onClick={() => (state.tcolor = color)}
           ></div>
@@ -119,9 +121,17 @@ function Customizer() {
         {snap.colors.map((color) => (
           <div
             key={color}
-            className={`circle`}
-            style={{ background: color }}
-            onClick={() => (state.tcolor = color)}
+            className={`circle  wh30`}
+            style={{
+              background: color,
+              borderWidth: tc == color ? "3px" : "0",
+            }}
+            onClick={() => {
+              console.log(state.tcolor);
+              console.log(tc);
+              settc(color);
+              state.tcolor = color;
+            }}
           ></div>
         ))}
       </div>
@@ -131,7 +141,7 @@ function Customizer() {
           {snap.fabrics.map((fabric, idx) => (
             <div
               key={fabric}
-              className={`circle`}
+              className={`circle bp`}
               style={{ overflow: "hidden" }}
               onClick={() => (state.curfabric = idx)}
             >
@@ -140,6 +150,7 @@ function Customizer() {
           ))}
         </div>
       </div>
+      <button className="see">Make it Unique</button>
       <button
         className="share"
         style={{ background: snap.color }}
